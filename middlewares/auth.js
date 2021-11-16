@@ -1,7 +1,7 @@
 var cfg = require('../cfg');
 
 // token check and validation
-function validatintToken(req, res, next) {
+module.exports = function validatintToken(req, res, next) {
     // checking if token is present in request header
     if (!req.headers.authorization) {
       return res.status(401).send({ error: 'TokenMissing' });
@@ -28,4 +28,3 @@ function validatintToken(req, res, next) {
 
 
 
-module.exports = validatintToken;
