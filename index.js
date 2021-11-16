@@ -6,8 +6,9 @@ var jsonpatch = require('json-patch');
 var cors = require("cors");
 var cfg = require('./cfg');
 var cookieParser = require('cookie-parser');
-var validatintToken = require('./middlewares/auth')
+var validatintToken = require('./middlewares/auth');
 var imageResizer = require('./middlewares/ImageResizer');
+const jwt = require('jsonwebtoken');
 
 
 

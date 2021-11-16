@@ -1,5 +1,5 @@
 var cfg = require('../cfg');
-
+const jwt = require('jsonwebtoken');
 // token check and validation
 module.exports = function validatintToken(req, res, next) {
     // checking if token is present in request header
