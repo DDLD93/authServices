@@ -37,7 +37,7 @@ app.post('/api/login', (req, res) => {
 // private routes
 app.get('/', validatintToken, (req, res) =>{
  res.send({message:'hi you made it'})
-
+//coment
 });
 app.post('/api/jsonpatch', validatintToken, (req,res) => {
     jsonpatch.apply(req.body.jsonObject,req.body.jsonPatch);
