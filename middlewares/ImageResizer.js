@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const resizeImg = require('resize-img');
 
-module.exports = (req,res,next) => {
+function imageResizer (req,res,next)  {
     let upload = path.extname(req.body.url);
     const cofig = {
         url: req.body.url,
@@ -32,3 +32,5 @@ module.exports = (req,res,next) => {
         })
     }
 };
+
+module.exports = imageResizer

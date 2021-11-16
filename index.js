@@ -13,7 +13,7 @@ var imageResizer = require('./middlewares/imageResizer');
 
 // 3. Initialize the application 
 var app = express();
-app.use(logger('dev'));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
