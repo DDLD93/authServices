@@ -24,27 +24,38 @@ app.use(express.json())
 
 //routes and endpoint
 app.post('/api/login', (req, res) => {
-    // Mock user
-    const user = req.body
-  
-    jwt.sign({user}, cfg.TOKEN_SECRET, { expiresIn: '360s' }, (err, token) => {
-      res.json({
-        token
+    try {
+      const user = req.body
+      // using the request body to generate token which will expire after 360s 
+      jwt.sign({user}, cfg.TOKEN_SECRET, { expiresIn: '360s' }, (err, token) => {
+        //shipping web token to client as response
+        res.json({token});
       });
-    });
+    } catch (error) {
+      res.status(500).send({message:'token genration failed'})
+    }
+   
   });
  
-// private routess
-app.get('/', validatintToken, (req, res) =>{
- res.send({message:'hi you made it'})
-//coment
+// private routess // route that can only be access after client provide a valid token
+app.get('api/', validatintToken, (req, res) =>{
+ res.send({message:'Hey you made it'})
 });
+//jason patcher endpoint 
 app.post('/api/jsonpatch', validatintToken, (req,res) => {
-    jsonpatch.apply(req.body.jsonObject,req.body.jsonPatch);
-    res.json({
-        Patched: req.body.jsonObject
-    });
+    try {
+      //applying patch to object
+        jsonpatch.apply(req.body.jsonObject,req.body.jsonPatch);
+        res.json({
+            Patched: req.body.jsonObject
+        });
+      
+    } catch (error) {
+      res.status(401).send({message:'bad request'})
+    }
 });
+
+//endpiont for resizing image
 app.post('/api/image', validatintToken, imageResizer, (req,res) => {
 });
 

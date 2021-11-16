@@ -1,7 +1,7 @@
 {
   "name": "authservices",
   "version": "1.0.0",
-  "description": "",
+  "description": "A microservice Authentication app with web tokens",
   "main": "index.js",
   "scripts": {
     "test": "test_log --exit || true ",
@@ -9,7 +9,7 @@
     "start": "node index"
   },
   "keywords": [],
-  "author": "",
+  "author": "Umar Adamu Jere",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.4",
