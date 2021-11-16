@@ -34,7 +34,7 @@ app.post('/api/login', (req, res) => {
     });
   });
  
-// private routes
+// private routess
 app.get('/', validatintToken, (req, res) =>{
  res.send({message:'hi you made it'})
 //coment
