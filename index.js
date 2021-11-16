@@ -7,7 +7,7 @@ var cors = require("cors");
 var cfg = require('./cfg');
 var cookieParser = require('cookie-parser');
 var validatintToken = require('./middlewares/auth')
-var imageResizer = require('./middlewares/imageResizer');
+var imageResizer = require('./middlewares/ImageResizer');
 
 
 
