@@ -1,6 +1,6 @@
 var cfg = require('../cfg');
 
-// token che
+// token check and validation
 function validatintToken(req, res, next) {
     // checking if token is present in request header
     if (!req.headers.authorization) {
