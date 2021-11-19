@@ -43,6 +43,7 @@ app.get('api/', validatintToken, (req, res) =>{
 });
 //jason patcher endpoint 
 app.post('/api/jsonpatch', validatintToken, (req,res) => {
+  if(req.body){
     try {
       //applying patch to object
         jsonpatch.apply(req.body.jsonObject,req.body.jsonPatch);
@@ -53,6 +54,7 @@ app.post('/api/jsonpatch', validatintToken, (req,res) => {
     } catch (error) {
       res.status(401).send({message:'bad request'})
     }
+  }
 });
 
 //endpiont for resizing image
